@@ -6,11 +6,20 @@ public class ColorTrigger : MonoBehaviour
 {
     public bool insidePanel = false;
 
+
+
     void Start()
     {
+
     }
 
 
+    void Update ()
+    {
+        
+    }
+    
+    
      void OnTriggerEnter2D (Collider2D other)
     {
         if (other.name == "Player" && insidePanel == false)
@@ -22,6 +31,8 @@ public class ColorTrigger : MonoBehaviour
             insidePanel = false;
         }
     }
+
+    
 
 
 
