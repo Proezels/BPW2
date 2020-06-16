@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorChange : MonoBehaviour
+public class HallwayColorChange : MonoBehaviour
 {
     public ColorTrigger trigger;
-    public GameObject PCam;
-    public GameObject SCam;
 
     SpriteRenderer renderer;
     Color newColor;
@@ -23,16 +21,12 @@ public class ColorChange : MonoBehaviour
         if (trigger.insidePanel == true)
         {
             Debug.Log ("Inside panel");
-            renderer.color = Color.white;
-            SCam.SetActive(true);
-            PCam.SetActive(false);
+            renderer.color = Color.grey;
         }
         else if (trigger.insidePanel == false)
         {
             Debug.Log ("outside panel");
-            renderer.color = Color.black;
-            SCam.SetActive(false);
-            PCam.SetActive(true);
+            renderer.color = Color.white;
         }
     }
 }
