@@ -7,7 +7,6 @@ public class FadeEvent : MonoBehaviour
     public EventTrigger trigger;
     Material material;
     float fadeIn = 0f;
-    float fadeTimer = 0f;
     public bool faded = false;
 
     void Start()

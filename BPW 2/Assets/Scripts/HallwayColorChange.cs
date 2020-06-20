@@ -6,13 +6,13 @@ public class HallwayColorChange : MonoBehaviour
 {
     public ColorTrigger trigger;
 
-    SpriteRenderer renderer;
+    SpriteRenderer render;
     Color newColor;
 
     void Start()
     {
-        renderer = GetComponent <SpriteRenderer>();
-        renderer.color = Color.white;    
+        render = GetComponent <SpriteRenderer>();
+        render.color = Color.white;    
     }
 
 
@@ -20,13 +20,11 @@ public class HallwayColorChange : MonoBehaviour
     {
         if (trigger.insidePanel == true)
         {
-            Debug.Log ("Inside panel");
-            renderer.color = Color.grey;
+            render.color = Color.grey;
         }
         else if (trigger.insidePanel == false)
         {
-            Debug.Log ("outside panel");
-            renderer.color = Color.white;
+            render.color = Color.white;
         }
     }
 }

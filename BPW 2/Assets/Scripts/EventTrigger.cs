@@ -11,7 +11,6 @@ public class EventTrigger : MonoBehaviour
     float fadeOut = 1f;
     Animator animator;
 
-
     public GameObject PCam;
     public GameObject MCam;
 
@@ -35,10 +34,7 @@ public class EventTrigger : MonoBehaviour
         { 
             PCam.SetActive(true);
             MCam.SetActive(false);
-            animator.enabled = false;
         }
-
-
     }
 
     void LateUpdate()
@@ -53,7 +49,6 @@ public class EventTrigger : MonoBehaviour
                     {
                         fadeOut = 0f;
                         UmbrellaGone = true;
-                        Debug.Log ("fade");
                     }
                 }
     }

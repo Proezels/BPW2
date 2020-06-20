@@ -9,8 +9,8 @@ public class TurnPage : MonoBehaviour
     public bool pageTurn = false;
     public bool AniEnd = false;
     public GameObject eventObjects;
-    bool spawned = false;
     public PlayableDirector timeline;
+
     
     
     void Start()
