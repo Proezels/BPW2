@@ -12,6 +12,8 @@ public class ColorChange : MonoBehaviour
     public GameObject SCam;
     public GameObject hallDark;
 
+    bool normalState = false;
+
     public Light2D lights;
 
     float timer = 0f;
@@ -41,10 +43,6 @@ public class ColorChange : MonoBehaviour
             PCam.SetActive(false);            
             hallDark.SetActive(true);
             lights.enabled = true;
-            if (eventFade != null && eventFade.faded == true)
-            {
-                eventRender.color = Color.white;
-            }
 
         }
         else if (trigger.insidePanel == false)
@@ -54,11 +52,6 @@ public class ColorChange : MonoBehaviour
             PCam.SetActive(true);       
             hallDark.SetActive(false);
             lights.enabled = false;
-            if (eventFade != null && eventFade.faded == true)
-            {
-                eventRender.color = Color.black;
-            }
-     
         }
 
     //trigger camera move when fade happens
@@ -73,8 +66,9 @@ public class ColorChange : MonoBehaviour
         
         if (eventFade != null && eventFade.faded == true)
         {
+            //trigger fadein of events && camera & light switch
             timer = timer + 1f;
-            if (timer >= 150)
+            if (timer >= 150f)
             {
                 if (eventTrigger != null)
                 {
@@ -83,7 +77,26 @@ public class ColorChange : MonoBehaviour
                     PCam.SetActive(true);
                     render.color = Color.black;
                     eventRender.color = Color.black;
+                    normalState = true;
                 }
+            }
+            //makes it so you can still enter the panels after events have triggered and same shit happens
+            if (trigger.insidePanel == true && normalState == true)
+            {
+                eventRender.color = Color.white;
+                render.color = Color.white;
+                SCam.SetActive(true);
+                PCam.SetActive(false);            
+                hallDark.SetActive(true);
+                lights.enabled = true;
+            } else if (trigger.insidePanel == false && normalState == true)
+            {
+                render.color = Color.black;
+                SCam.SetActive(false);
+                PCam.SetActive(true);       
+                hallDark.SetActive(false);
+                lights.enabled = false;
+                eventRender.color = Color.black;
             }
         }
     }

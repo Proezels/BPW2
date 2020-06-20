@@ -11,9 +11,6 @@ public class EventTrigger : MonoBehaviour
     float fadeOut = 1f;
     Animator animator;
 
-    public GameObject PCam;
-    public GameObject MCam;
-
     void Start()
     {
         material = GetComponent<SpriteRenderer>().material;   
@@ -23,20 +20,10 @@ public class EventTrigger : MonoBehaviour
 
     void Update()
     {
-        
-        if (turnPage.pageTurn == true)
-        {
-            PCam.SetActive(false);
-            MCam.SetActive(true);
-        }
 
-        if (turnPage.AniEnd == true)
-        { 
-            PCam.SetActive(true);
-            MCam.SetActive(false);
-        }
     }
 
+//fadeout items at interaction
     void LateUpdate()
     {        
         material.SetFloat("_Fade", fadeOut);
@@ -53,6 +40,7 @@ public class EventTrigger : MonoBehaviour
                 }
     }
 
+//detects whether player interacts with object
     void OnTriggerEnter2D (Collider2D other)
     {
         if (other.name == "Player" && UmbrellaGet == false)

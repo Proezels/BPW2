@@ -8,6 +8,7 @@ public class ColorTrigger : MonoBehaviour
     public bool p1 = false;
     public bool p2 = false;
     public bool p3 = false;
+    public bool p4 = false;
     public bool p5 = false;
 
     public GameObject PCam;
@@ -35,7 +36,7 @@ public class ColorTrigger : MonoBehaviour
         if (Ladder != null)
         {
             material.SetFloat("_Fade", fadeOut);
-            if (p1 == true || p2 == true || p3 == true || p5 == true)
+            if (p1 == true || p2 == true || p3 == true || p4 == true || p5 == true)
                     {
                         fadeOut += Time.deltaTime;
                         if (PCam != null && SCam != null)
@@ -90,11 +91,15 @@ public class ColorTrigger : MonoBehaviour
                 p3 = true;
                 p2 = false;
             }
-  
+            if (gameObject.name == "P4Detect")
+            {
+                p4 = true;
+                p3 = false;
+            }
             if (gameObject.name == "P5Detect")
             {
                 p5 = true;
-                p3 = false;
+                p4 = false;
             }
         }
     }
