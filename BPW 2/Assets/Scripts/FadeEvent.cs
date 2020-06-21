@@ -8,6 +8,7 @@ public class FadeEvent : MonoBehaviour
     Material material;
     float fadeIn = 0f;
     public bool faded = false;
+    public bool ending = false;
 
     void Start()
     {
@@ -17,7 +18,6 @@ public class FadeEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (trigger.UmbrellaGone == true)
         {   
             fadeIn += Time.deltaTime;
@@ -28,6 +28,12 @@ public class FadeEvent : MonoBehaviour
                     faded = true;
                 } 
         }
+
+        if (faded == true && gameObject.name == "p1.event")
+        {
+            ending = true;
+        }
+
         
         material.SetFloat("_Fade", fadeIn);
     }

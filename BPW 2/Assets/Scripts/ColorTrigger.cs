@@ -15,20 +15,38 @@ public class ColorTrigger : MonoBehaviour
     public GameObject SCam;
 
     float fadeOut = 0f;
+    float exit = 0f;
     Material material;
+    Material holeMat;
 
     public GameObject Ladder;
+    public GameObject hole;
+    public FadeEvent eventFade;
 
 
 
     void Start()
     {
+        holeMat = hole.GetComponent<SpriteRenderer>().material;
         if (Ladder != null)
         {
             material = Ladder.GetComponent<SpriteRenderer>().material;  
         }
     }
 
+void Update()
+{
+        if (eventFade != null && eventFade.ending == true)
+        {
+            hole.SetActive(true);
+            holeMat.SetFloat("_Fade", exit);
+            exit += Time.deltaTime;
+            if (exit >= 1f)
+            {
+                exit = 1f;
+            }
+        }
+}
 
  void LateUpdate()
     {        

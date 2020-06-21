@@ -37,11 +37,11 @@ public class ColorChange : MonoBehaviour
     {
         //triggers lights & camera change inside panels
         if (trigger.insidePanel == true)
-        {
+        {            
+            hallDark.SetActive(true);
             render.color = Color.white;
             SCam.SetActive(true);
             PCam.SetActive(false);            
-            hallDark.SetActive(true);
             lights.enabled = true;
 
         }
@@ -99,5 +99,6 @@ public class ColorChange : MonoBehaviour
                 eventRender.color = Color.black;
             }
         }
+        
     }
 }
